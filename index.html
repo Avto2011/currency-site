@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CurrencyFlow — Currency Converter</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="nav-container">
+
+            <a href="#home" class="logo">
+                Currency<span>Flow</span>
+            </a>
+
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#rates">Exchange Rates</a>
+                <a href="#converter">Converter</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- HERO -->
+    <main id="home">
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="badge">
+                    🇬🇪 Official Georgian exchange rates
+                </div>
+
+                <h1>
+                    Currency conversion
+                    <span>made simple.</span>
+                </h1>
+
+                <p>
+                    Convert Georgian Lari and other currencies
+                    using official exchange rates from Georgia's
+                    National Bank.
+                </p>
+
+                <a href="#converter" class="hero-button">
+                    Start converting →
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONVERTER -->
+        <section class="converter-section" id="converter">
+
+            <div class="section-title">
+
+                <div class="small-title">
+                    CURRENCY CONVERTER
+                </div>
+
+                <h2>
+                    Convert your money
+                </h2>
+
+                <p>
+                    Choose currencies and enter the amount you want to convert.
+                </p>
+
+            </div>
+
+
+            <div class="converter-card">
+
+                <!-- FROM -->
+                <div class="currency-box">
+
+                    <label for="fromAmount">
+                        You send
+                    </label>
+
+                    <div class="currency-input">
+
+                        <input
+                            id="fromAmount"
+                            type="number"
+                            value="500"
+                            min="0"
+                            step="any"
+                            placeholder="0"
+                        >
+
+                        <select id="fromCurrency">
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SWAP -->
+                <button
+                    id="swapButton"
+                    class="swap-button"
+                    type="button"
+                    aria-label="Swap currencies"
+                >
+                    ⇅
+                </button>
+
+
+                <!-- TO -->
+                <div class="currency-box">
+
+                    <label for="toAmount">
+                        You receive
+                    </label>
+
+                    <div class="currency-input">
+
+                        <input
+                            id="toAmount"
+                            type="text"
+                            value="0.00"
+                            readonly
+                        >
+
+                        <select id="toCurrency">
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RESULT -->
+                <div class="result-box">
+
+                    <div id="conversionText">
+                        Loading...
+                    </div>
+
+                    <div id="rateText">
+                        Loading exchange rate...
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="status"
+                    class="status"
+                    aria-live="polite"
+                >
+                    Loading official rates...
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- EXCHANGE RATES -->
+        <section class="rates-section" id="rates">
+
+            <div class="section-title">
+
+                <div class="small-title">
+                    TODAY'S RATES
+                </div>
+
+                <h2>
+                    Popular currencies
+                </h2>
+
+                <p>
+                    Official exchange rates provided by the
+                    National Bank of Georgia.
+                </p>
+
+            </div>
+
+
+            <div
+                id="ratesGrid"
+                class="rates-grid"
+            >
+                <!-- JS generates cards here -->
+            </div>
+
+        </section>
+
+
+        <!-- INFORMATION -->
+        <section class="info-section">
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <h3>
+                        Official exchange rates
+                    </h3>
+
+                    <p>
+                        CurrencyFlow uses official exchange-rate
+                        data provided by the National Bank of Georgia.
+                        Actual bank and exchange-office rates may differ.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-container">
+
+            <div>
+
+                <div class="logo">
+                    Currency<span>Flow</span>
+                </div>
+
+                <p>
+                    Simple and fast currency conversion.
+                </p>
+
+            </div>
+
+
+            <div class="footer-right">
+                Official rates by NBG 🇬🇪
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="app.js"></script>
+
+</body>
+</html>

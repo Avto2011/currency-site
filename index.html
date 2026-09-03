@@ -6,13 +6,29 @@
 
     <title>CurrencyFlow — Currency Converter</title>
 
+    <meta
+        name="description"
+        content="CurrencyFlow — fast and simple currency converter using official exchange rates from the National Bank of Georgia."
+    >
+
+    <meta
+        name="keywords"
+        content="currency converter, GEL, USD, EUR, exchange rates, Georgia, National Bank of Georgia"
+    >
+
+    <meta name="theme-color" content="#0b1220">
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
     <header class="navbar">
+
         <div class="nav-container">
 
             <a href="#home" class="logo">
@@ -20,38 +36,68 @@
             </a>
 
             <nav>
-                <a href="#home">Home</a>
-                <a href="#rates">Exchange Rates</a>
-                <a href="#converter">Converter</a>
+                <a href="#home" data-i18n="navHome">Home</a>
+                <a href="#rates" data-i18n="navRates">Exchange Rates</a>
+                <a href="#converter" data-i18n="navConverter">Converter</a>
             </nav>
 
+            <div class="nav-actions">
+
+                <button
+                    id="languageButton"
+                    class="language-button"
+                    type="button"
+                    aria-label="Change language"
+                >
+                    🇬🇧 EN
+                </button>
+
+            </div>
+
         </div>
+
     </header>
 
 
-    <!-- HERO -->
+    <!-- =========================
+         MAIN
+    ========================== -->
+
     <main id="home">
+
+
+        <!-- =========================
+             HERO
+        ========================== -->
 
         <section class="hero">
 
             <div class="hero-content">
 
-                <div class="badge">
+                <div class="badge" data-i18n="badge">
                     🇬🇪 Official Georgian exchange rates
                 </div>
 
                 <h1>
-                    Currency conversion
-                    <span>made simple.</span>
+                    <span class="hero-title-main" data-i18n="heroTitle">
+                        Currency conversion
+                    </span>
+
+                    <span data-i18n="heroTitleAccent">
+                        made simple.
+                    </span>
                 </h1>
 
-                <p>
-                    Convert Georgian Lari and other currencies
-                    using official exchange rates from Georgia's
-                    National Bank.
+                <p data-i18n="heroDescription">
+                    Convert Georgian Lari and other currencies using official
+                    exchange rates from Georgia's National Bank.
                 </p>
 
-                <a href="#converter" class="hero-button">
+                <a
+                    href="#converter"
+                    class="hero-button"
+                    data-i18n="startConverting"
+                >
                     Start converting →
                 </a>
 
@@ -60,20 +106,29 @@
         </section>
 
 
-        <!-- CONVERTER -->
-        <section class="converter-section" id="converter">
+        <!-- =========================
+             CONVERTER
+        ========================== -->
+
+        <section
+            class="converter-section"
+            id="converter"
+        >
 
             <div class="section-title">
 
-                <div class="small-title">
+                <div
+                    class="small-title"
+                    data-i18n="converterSmallTitle"
+                >
                     CURRENCY CONVERTER
                 </div>
 
-                <h2>
+                <h2 data-i18n="converterTitle">
                     Convert your money
                 </h2>
 
-                <p>
+                <p data-i18n="converterDescription">
                     Choose currencies and enter the amount you want to convert.
                 </p>
 
@@ -82,10 +137,15 @@
 
             <div class="converter-card">
 
+
                 <!-- FROM -->
+
                 <div class="currency-box">
 
-                    <label for="fromAmount">
+                    <label
+                        for="fromAmount"
+                        data-i18n="youSend"
+                    >
                         You send
                     </label>
 
@@ -98,9 +158,14 @@
                             min="0"
                             step="any"
                             placeholder="0"
+                            inputmode="decimal"
+                            aria-label="Amount to convert"
                         >
 
-                        <select id="fromCurrency">
+                        <select
+                            id="fromCurrency"
+                            aria-label="Source currency"
+                        >
                         </select>
 
                     </div>
@@ -109,20 +174,26 @@
 
 
                 <!-- SWAP -->
+
                 <button
                     id="swapButton"
                     class="swap-button"
                     type="button"
                     aria-label="Swap currencies"
+                    title="Swap currencies"
                 >
                     ⇅
                 </button>
 
 
                 <!-- TO -->
+
                 <div class="currency-box">
 
-                    <label for="toAmount">
+                    <label
+                        for="toAmount"
+                        data-i18n="youReceive"
+                    >
                         You receive
                     </label>
 
@@ -133,9 +204,13 @@
                             type="text"
                             value="0.00"
                             readonly
+                            aria-label="Converted amount"
                         >
 
-                        <select id="toCurrency">
+                        <select
+                            id="toCurrency"
+                            aria-label="Target currency"
+                        >
                         </select>
 
                     </div>
@@ -144,6 +219,7 @@
 
 
                 <!-- RESULT -->
+
                 <div class="result-box">
 
                     <div id="conversionText">
@@ -157,6 +233,8 @@
                 </div>
 
 
+                <!-- STATUS -->
+
                 <div
                     id="status"
                     class="status"
@@ -165,25 +243,54 @@
                     Loading official rates...
                 </div>
 
+
+                <!-- UPDATE -->
+
+                <div class="update-row">
+
+                    <span id="lastUpdated">
+                        Last updated: —
+                    </span>
+
+                    <button
+                        id="refreshButton"
+                        class="refresh-button"
+                        type="button"
+                    >
+                        <span class="refresh-icon">↻</span>
+                        <span data-i18n="refresh">Refresh</span>
+                    </button>
+
+                </div>
+
             </div>
 
         </section>
 
 
-        <!-- EXCHANGE RATES -->
-        <section class="rates-section" id="rates">
+        <!-- =========================
+             EXCHANGE RATES
+        ========================== -->
+
+        <section
+            class="rates-section"
+            id="rates"
+        >
 
             <div class="section-title">
 
-                <div class="small-title">
+                <div
+                    class="small-title"
+                    data-i18n="ratesSmallTitle"
+                >
                     TODAY'S RATES
                 </div>
 
-                <h2>
+                <h2 data-i18n="ratesTitle">
                     Popular currencies
                 </h2>
 
-                <p>
+                <p data-i18n="ratesDescription">
                     Official exchange rates provided by the
                     National Bank of Georgia.
                 </p>
@@ -195,13 +302,16 @@
                 id="ratesGrid"
                 class="rates-grid"
             >
-                <!-- JS generates cards here -->
+                <!-- JS generates cards -->
             </div>
 
         </section>
 
 
-        <!-- INFORMATION -->
+        <!-- =========================
+             INFORMATION
+        ========================== -->
+
         <section class="info-section">
 
             <div class="info-card">
@@ -212,15 +322,25 @@
 
                 <div>
 
-                    <h3>
+                    <h3 data-i18n="infoTitle">
                         Official exchange rates
                     </h3>
 
-                    <p>
-                        CurrencyFlow uses official exchange-rate
-                        data provided by the National Bank of Georgia.
-                        Actual bank and exchange-office rates may differ.
+                    <p data-i18n="infoDescription">
+                        CurrencyFlow uses official exchange-rate data provided
+                        by the National Bank of Georgia. Actual bank and
+                        exchange-office rates may differ.
                     </p>
+
+                    <a
+                        class="source-link"
+                        href="https://nbg.gov.ge/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-i18n="sourceLink"
+                    >
+                        Visit National Bank of Georgia →
+                    </a>
 
                 </div>
 
@@ -231,7 +351,10 @@
     </main>
 
 
-    <!-- FOOTER -->
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
     <footer>
 
         <div class="footer-container">
@@ -242,7 +365,7 @@
                     Currency<span>Flow</span>
                 </div>
 
-                <p>
+                <p data-i18n="footerDescription">
                     Simple and fast currency conversion.
                 </p>
 
@@ -250,7 +373,13 @@
 
 
             <div class="footer-right">
-                Official rates by NBG 🇬🇪
+
+                <span data-i18n="footerRates">
+                    Official rates by NBG
+                </span>
+
+                🇬🇪
+
             </div>
 
         </div>
